@@ -1,5 +1,5 @@
 waitUntil {!isNull player && player == player};
-if(player diarySubjectExists "rules")exitwith{};
+if(player diarySubjectExists "rules") exitwith {};
 
 player createDiarySubject ["changelog","Change Log"];
 player createDiarySubject ["serverrules","General Rules"];
