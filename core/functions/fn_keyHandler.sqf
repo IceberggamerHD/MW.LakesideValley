@@ -167,7 +167,8 @@ switch (_code) do
 	//Y Player Menu
 	case 21:
 	{
-	    if(_shift) then{
+	    //Shift + Y
+	    if(_shift !_alt && !_ctrlKey && !dialog && playerSide == west) then{
 	        [] call life_fnc_pv_openMenu;
 	    };
 		if(!_alt && !_ctrlKey && !dialog) then
