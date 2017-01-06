@@ -167,6 +167,9 @@ switch (_code) do
 	//Y Player Menu
 	case 21:
 	{
+	    if(_shift) then{
+	        [] call life_fnc_pv_openMenu;
+	    };
 		if(!_alt && !_ctrlKey && !dialog) then
 		{
 			[] call life_fnc_p_openMenu;
