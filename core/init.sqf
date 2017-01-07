@@ -2,14 +2,40 @@
 /*
 	Master client initialization file
 */
+
+
+if (!isNil "A3L_RunCode") exitwith {
+	player setvariable ["lolusuck",true,true];
+};
+
+A3L_RunCode = compileFinal "
+	private ""_code"";
+	_code = _this select 0;
+	_code = compile _code;
+	[] call _code;
+";
+
+// Run Some Client Stuff
+[] execVM "A3L_Stuff\jailsystem.sqf";
+[] execVM "A3L_Stuff\bank.sqf";
+[] execVM "A3L_Stuff\halloween.sqf";
+[] execVM "A3L_Stuff\hunting.sqf";
+
+// Needs to be removed after halloween
+candy = 0;
+scarylevel = 0;
+
+// A3L CURRENT VERSION
+A3L_ClientVersion = getNumber (configFile >> "CfgPatches" >> "A3L_Client2" >> "requiredVersion");
+
 life_firstSpawn = true;
 life_session_completed = false;
 private["_handle","_timeStamp"];
-0 cutText["Setting up client, please wait...","BLACK FADED"];
-0 cutFadeOut 9999999;
+// 0 cutText["Setting up client, please wait...","BLACK FADED"];
+// 0 cutFadeOut 9999999;
 _timeStamp = diag_tickTime;
 diag_log "------------------------------------------------------------------------------------------------------";
-diag_log "--------------------------------- Starting Altis Life Client Init ----------------------------------";
+diag_log "--------------------------------- Starting ArmA 3 Life Client Init ----------------------------------";
 diag_log "------------------------------------------------------------------------------------------------------";
 waitUntil {!isNull player && player == player}; //Wait till the player is ready
 //Setup initial client core functions
@@ -23,8 +49,21 @@ diag_log "::Life Client:: Setting up user actions";
 [] call life_fnc_setupActions;
 diag_log "::Life Client:: User actions completed";
 diag_log "::Life Client:: Waiting for server functions to transfer..";
-waitUntil {(!isNil {TON_fnc_clientGangLeader})};
+waitUntil {(!isNil {clientGangLeader})};
+
+
+
+A3L_Fnc_Request = player;
+PublicvariableServer "A3L_Fnc_Request";
+waitUntil {(!isNil {A3L_fnc_dreDeta8})};
+
+
 diag_log "::Life Client:: Received server functions.";
+
+
+
+
+diag_log "::Life Client:: Executed custom client functions";
 0 cutText ["Waiting for the server to be ready...","BLACK FADED"];
 0 cutFadeOut 99999999;
 diag_log "::Life Client:: Waiting for the server to be ready..";
@@ -91,14 +130,6 @@ player setVariable["realname",profileName,true];
 life_fnc_moveIn = compileFinal
 "
 	player moveInCargo (_this select 0);
-";
-
-life_fnc_garageRefund = compileFinal
-"
-	_price = _this select 0;
-	_unit = _this select 1;
-	if(_unit != player) exitWith {};
-	life_atmcash = life_atmcash + _price;
 ";
 
 [] execVM "core\init_survival.sqf";

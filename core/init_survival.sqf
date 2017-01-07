@@ -77,6 +77,65 @@
 	};
 };
 
+
+//Intox Start
+private["_obj"];
+[] spawn  
+{
+	while{true} do
+	{
+		sleep 180;
+		if(life_intox > 0) then 
+		{
+			if(life_intox <= 0.02) then {life_intox = 0.00;} else {life_intox = life_intox - 0.02;};
+			[] call life_fnc_hudUpdate;
+			switch(true) do {
+				case (life_intox == 0.00): {hint "You are completely sober.";};
+				case (life_intox == 0.08): {hint "You can now legally drive.";};
+			};
+		};
+	};
+};
+
+[] spawn  
+{
+	while{true} do
+	{
+		waitUntil {life_intox > 0.08};
+		player setVariable["intoxicated",true,true];
+		[[0,format["%1 seems intoxicated.",name player]],"life_fnc_broadcast",(position player) nearEntities [["Man"], 50],false] spawn life_fnc_MP;
+		while{life_intox > 0.08} do 
+		{
+			"dynamicBlur" ppEffectEnable true;
+			"dynamicBlur" ppEffectAdjust [round ((1+(life_intox-.1))^10)];
+			"dynamicBlur" ppEffectCommit 1;
+			sleep 5;
+		};
+		"dynamicBlur" ppEffectEnable false;
+		player setVariable["intoxicated",false,true];
+	};
+};
+
+[] spawn  
+{
+	while{true} do
+	{
+		waitUntil {life_intox > 0.30};
+		_obj = "Land_ClutterCutter_small_F" createVehicle (getPosATL player);
+		_obj setPosATL (getPosATL player);
+		[[player,"AinjPfalMstpSnonWnonDf_carried_fallwc"],"life_fnc_animSync",true,false] spawn life_fnc_MP;
+		player attachTo [_obj,[0,0,0]];
+		[[0,format["%1 has passed out.",name player]],"life_fnc_broadcast",(position player) nearEntities [["Man"], 100],false] spawn life_fnc_MP;
+		while{life_intox > 0.30} do 
+		{
+			hint "Your intoxication level is above 0.30 and you are overdosing. Seek immediate treatment or find some stimulants! If you go above 0.40, you may die.";
+			sleep 60;
+		};
+		detach player;
+		[[player,"amovppnemstpsraswrfldnon"],"life_fnc_animSync",true,false] spawn life_fnc_MP;
+	};
+};
+
 [] spawn  
 {
 	private["_walkDis","_myLastPos","_MaxWalk","_runHunger","_runDehydrate"];

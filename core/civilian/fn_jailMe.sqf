@@ -53,6 +53,7 @@ switch (true) do
 {
 	case (_bail) :
 	{
+		player addUniform A3L_Fnc_OldUniform;
 		life_is_arrested = false;
 		life_bail_paid = false;
 		hint localize "STR_Jail_Paid";
@@ -66,13 +67,14 @@ switch (true) do
 	{
 		life_is_arrested = false;
 		hint localize "STR_Jail_EscapeSelf";
-		[[0,"STR_Jail_EscapeNOTF",true,[profileName]],"life_fnc_broadcast",nil,false] spawn life_fnc_MP;
+		[[0,format[localize "STR_Jail_EscapeNOTF",profileName]],"life_fnc_broadcast",nil,false] spawn life_fnc_MP;
 		[[getPlayerUID player,profileName,"901"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP;
 		[5] call SOCK_fnc_updatePartial;
 	};
 	
 	case (alive player && !_esc && !_bail) :
 	{
+		player addUniform A3L_Fnc_OldUniform;
 		life_is_arrested = false;
 		hint localize "STR_Jail_Released";
 		[[getPlayerUID player],"life_fnc_wantedRemove",false,false] spawn life_fnc_MP;

@@ -11,42 +11,27 @@ _filter = [_this,0,0,[0]] call BIS_fnc_param;
 //Classname, Custom Display name (use nil for Cfg->DisplayName, price
 
 //Shop Title Name
-ctrlSetText[3103,"Altis Police Department Shop"];
+ctrlSetText[3103,"Lakeside Police Department Shop"];
 
 _ret = [];
 switch (_filter) do
 {
-	//Uniforms
 	case 0:
 	{
-		_ret pushBack ["U_Rangemaster","Cop Uniform",25];
-		if(__GETC__(life_coplevel) > 1) then
-		{
-			_ret pushBack ["U_B_CombatUniform_mcam_tshirt",nil,350];
-			_ret pushBack ["U_B_survival_uniform",nil,1250];
-		};
-		if(__GETC__(life_coplevel) > 2) then
-		{
-			_ret pushBack ["U_B_CombatUniform_mcam_worn",nil,550];
-		};
+		_ret set[count _ret,["A3L_Sheriff_Uniform","Sheriff Uniform",500]];
+	    _ret set[count _ret,["fto_uni","Field Training Uniform",150]];
+		_ret set[count _ret,["FBI_uni","FBI Uniform",150]];
+		_ret set[count _ret,["swat_uni1","SERT Uniform",150]];
+		_ret set[count _ret,["U_B_HeliPilotCoveralls","Pilot Uniform",150]];
 	};
 	
-	//Hats
 	case 1:
 	{
-		if(__GETC__(life_coplevel) > 1) then
-		{
-			_ret pushBack ["H_HelmetB_plain_mcamo",nil,75];
-			_ret pushBack ["H_Booniehat_mcamo",nil,120];
-		};
-		
-		if(__GETC__(life_coplevel) > 2) then
-		{
-			_ret pushBack ["H_MilCap_mcamo",nil,100];
-		};
+		_ret set[count _ret,["A3L_sargehat",nil,50]];
+		_ret set[count _ret,["H_PilotHelmetHeli_B","Pilot Helmet",50]];
+		_ret set[count _ret,["H_HelmetB_black","SERT Helmet",50]];
 	};
 	
-	//Glasses
 	case 2:
 	{
 		_ret = 
@@ -60,21 +45,26 @@ switch (_filter) do
 			["G_Aviator",nil,75],
 			["G_Squares",nil,10],
 			["G_Lowprofile",nil,30],
-			["G_Combat",nil,55]
+			["G_Combat",nil,55],
+			["G_Balaclava_blk",nil,55],
+			["G_Balaclava_combat",nil,55],
+			["G_Balaclava_lowprofile",nil,55],
+			["A3L_Balaclava",nil,60]
+			
 		];
 	};
 	
-	//Vest
 	case 3:
 	{
-		_ret pushBack ["V_Rangemaster_belt",nil,800];
-		if(__GETC__(life_coplevel) > 1) then
-		{
-			_ret pushBack ["V_PlateCarrier2_rgr",nil,1500];
-		};
+		_ret set[count _ret,["SWATvest2","Sheriff Vest",200]];
+		_ret set[count _ret,["A3L_fbivest1","FBI Vest",200]];
+		_ret set[count _ret,["A3L_sheriffvest3","Sheriff Vest (Green)",200]];
+		_ret set[count _ret,["A3L_sheriffvest2","Sheriff Vest (Grey)",200]];
+		_ret set[count _ret,["A3L_sheriffvest1","Sheriff Vest (Tan)",200]];
+		_ret set[count _ret,["V_Rangemaster_belt","Pilot Holster",200]];
+		_ret set[count _ret,["SWATvest1","SERT Vest",200]];
 	};
 	
-	//Backpacks
 	case 4:
 	{
 		_ret =

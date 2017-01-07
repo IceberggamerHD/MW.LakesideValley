@@ -6,22 +6,14 @@ class Life_key_management {
 	onLoad = "[] spawn life_fnc_keyMenu;";
 	
 	class controlsBackground {
-		class Life_RscTitleBackground:Life_RscText {
-			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
-			idc = -1;
-			x = 0.1;
-			y = 0.2;
-			w = 0.6;
-			h = (1 / 25);
-		};
-		
-		class MainBackground:Life_RscText {
-			colorBackground[] = {0, 0, 0, 0.7};
-			idc = -1;
-			x = 0.1;
-			y = 0.2 + (11 / 250);
-			w = 0.6;
-			h = 0.6 - (22 / 250);
+		class background: life_RscPicture
+		{
+			idc = 1200;
+			text = "\A3L_Client2\tablet_new\keychain.paa";
+			x = 0.288594 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.417656 * safezoneW;
+			h = 0.561 * safezoneH;
 		};
 	};
 	
@@ -32,10 +24,10 @@ class Life_key_management {
 			colorBackground[] = {0, 0, 0, 0};
 			idc = -1;
 			text = "$STR_Keys_Title";
-			x = 0.1;
-			y = 0.2;
-			w = 0.6;
-			h = (1 / 25);
+			x = 0 * safezoneW + safezoneX;
+			y = 0 * safezoneH + safezoneY;
+			w = 0 * safezoneW;
+			h = 0 * safezoneH;
 		};
 		
 		class KeyChainList : Life_RscListBox 
@@ -43,49 +35,52 @@ class Life_key_management {
 			idc = 2701;
 			text = "";
 			sizeEx = 0.035;
-			
-			x = 0.12; y = 0.26;
-			w = 0.56; h = 0.370;
+			x = 0.323958 * safezoneW + safezoneX;
+			y = 0.368519 * safezoneH + safezoneY;
+			w = 0.0777083 * safezoneW;
+			h = 0.280926 * safezoneH;
 		};
 
-		class CloseButtonKey : Life_RscButtonMenu {
+		class CloseButtonKey : Life_RscButtonSilent {
 			idc = -1;
 			text = "$STR_Global_Close";
 			onButtonClick = "closeDialog 0;";
-			x = -0.06 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
-			y = 0.8 - (1 / 25);
-			w = (6.25 / 40);
-			h = (1 / 25);
+			x = 0 * safezoneW + safezoneX;
+			y = 0 * safezoneH + safezoneY;
+			w = 0 * safezoneW;
+			h = 0 * safezoneH;
 		};
 		
 		class NearPlayers : Life_RscCombo {
 		
 		idc = 2702;
 		
-		x = 0.26; y = 0.645;
-		w = 0.275; h = 0.03;
+			x = 0.410937 * safezoneW + safezoneX;
+			y = 0.366667 * safezoneH + safezoneY;
+			w = 0.0719791 * safezoneW;
+			h = 0.0253704 * safezoneH;
 		
 		};
 		
-		class DropKey : life_RscButtonMenu {
+		class DropKey : Life_RscButtonSilent {
 			idc = -1;
 			text = "$STR_Keys_DropKey";
 			onButtonClick = "[] call life_fnc_keyDrop";
-			x = 0.1 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
-			y = 0.8 - (1 / 25);
-			w = (6.25 / 40);
-			h = (1 / 25);
+			x = 0.411458 * safezoneW + safezoneX;
+			y = 0.431482 * safezoneH + safezoneY;
+			w = 0.0730208 * safezoneW;
+			h = 0.0272222 * safezoneH;
 		};
 		
-		class GiveKey : Life_RscButtonMenu {
+		class GiveKey : Life_RscButtonSilent {
 			idc = 2703;
 			text = "$STR_Keys_GiveKey";
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
 			onButtonClick = "[] call life_fnc_keyGive";
-			x = 0.32;
-			y = 0.69;
-			w = (6.25 / 40);
-			h = (1 / 25);
+			x = 0.410416 * safezoneW + safezoneX;
+			y = 0.393519 * safezoneH + safezoneY;
+			w = 0.0730208 * safezoneW;
+			h = 0.0272222 * safezoneH;
 		};
 	};
 };

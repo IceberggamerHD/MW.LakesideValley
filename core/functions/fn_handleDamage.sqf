@@ -6,11 +6,20 @@
 	Handles damage, specifically for handling the 'tazer' pistol and nothing else.
 */
 private["_unit","_damage","_source","_projectile","_part","_curWep"];
+
 _unit = _this select 0;
 _part = _this select 1;
 _damage = _this select 2;
 _source = _this select 3;
 _projectile = _this select 4;
+
+/*
+_unit = _this select 1;
+_part = _this select 5;
+_damage = _this select 10;
+_source = _this select 0;
+_projectile = _this select 2;
+*/
 
 //Internal Debugging.
 if(!isNil "TON_Debug") then {
@@ -21,7 +30,7 @@ if(!isNil "TON_Debug") then {
 if(!isNull _source) then {
 	if(_source != _unit) then {
 		_curWep = currentWeapon _source;
-		if(_projectile in ["B_9x21_Ball","B_556x45_dual"] && _curWep in ["hgun_P07_snds_F","arifle_SDAR_F"]) then {
+		if(_projectile in ["26_taser"] && _curWep in ["Taser_26"]) then {
 			if(side _source == west && playerSide != west) then {
 				private["_distance","_isVehicle","_isQuad"];
 				_distance = if(_projectile == "B_556x45_dual") then {100} else {35};
@@ -49,5 +58,5 @@ if(!isNull _source) then {
 	};
 };
 
-[] call life_fnc_hudUpdate;
+//[] call life_fnc_hudUpdate;
 _damage;

@@ -27,11 +27,11 @@ if(_zone == "") exitWith {
 
 //Get the resource that will be gathered from the zone name...
 _item = switch(true) do {
-	case (_zone in ["apple_1","apple_2","apple_3","apple_4"]): {"apple"};
-	case (_zone in ["peaches_1","peaches_2","peaches_3","peaches_4"]): {"peach"};
-	case (_zone in ["heroin_1"]): {"heroinu"};
-	case (_zone in ["cocaine_1"]): {"cocaine"};
-	case (_zone in ["weed_1"]): {"cannabis"};
+	case (_zone in ["wheat_1","wheat_2","sunflower_1","sunflower_2"]): {"apple"};
+	case (_zone in ["corn_1","bean_1","cotton_1","olive_1"]): {"peach"};
+	case (_zone in ["opium_1"]): {"heroinu"};
+	case (_zone in ["pumpkin_1"]): {"cocaine"};
+	case (_zone in ["cannabis_1"]): {"cannabis"};
 	case (_zone in ["lead_1"]): {"copperore"};
 	case (_zone in ["iron_1"]): {"ironore"};
 	case (_zone in ["salt_1"]): {"salt"};
@@ -65,13 +65,13 @@ while {true} do {
 	_vInv = _vehicle getVariable ["Trunk",[[],0]];
 	_items = _vInv select 0;
 	_space = _vInv select 1;
-	_itemIndex = [_item,_items] call TON_fnc_index;
+	_itemIndex = [_item,_items] call fnc_index;
 	_weight = [_vehicle] call life_fnc_vehicleWeight;
 	_sum = [_item,15,_weight select 1,_weight select 0] call life_fnc_calWeightDiff; //Get a sum base of the remaining weight.. 
 	if(_sum < 1) exitWith {titleText[localize "STR_NOTF_DeviceFull","PLAIN"];};
 	_itemWeight = ([_item] call life_fnc_itemWeight) * _sum;
 	if(_itemIndex == -1) then {
-		_items pushBack [_item,_sum];
+		_items set[count _items,[_item,_sum]];
 	} else {
 		_val = _items select _itemIndex select 1;
 		_items set[_itemIndex,[_item,_val + _sum]];

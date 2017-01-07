@@ -18,15 +18,32 @@ if(count life_spawn_point == 0) then
 	{
 		if(isNil {(call compile format["%1", _sp select 0])}) then {
 			player setPos (getMarkerPos (_sp select 0));
+			
+			// Run our code for hospital spawn
+			if ((!life_firstSpawn) && (_sp select 0 == "civ_spawn_1")) then 
+			{
+				[] call A3L_Fnc_HospitalSpawn;
+			};			
+			
+			
 		} else {
 			_spawnPos = (call compile format["%1", _sp select 0]) call BIS_fnc_selectRandom;
 			_spawnPos = _spawnPos buildingPos 0;
 			player setPos _spawnPos;
+			
+
+			
 		};
 	}
 		else
 	{
 		player setPos (getMarkerPos (_sp select 0));
+		
+		// Run our code for hospital spawn
+		if ((!life_firstSpawn) && (_sp select 0 == "civ_spawn_1")) then 
+		{
+		[] call A3L_Fnc_HospitalSpawn;
+		};					
 	};
 	titleText[format["%2 %1",_sp select 1,localize "STR_Spawn_Spawned"],"BLACK IN"];
 }
@@ -44,7 +61,6 @@ if(count life_spawn_point == 0) then
 					player setPos (getMarkerPos (life_spawn_point select 0));
 				};
 				
-				{_bPos = _bPos - [(_house buildingPos _x)];} foreach (_house getVariable ["slots",[]]);
 				_pos = _bPos call BIS_fnc_selectRandom;
 				player setPosATL _pos;
 			} else {

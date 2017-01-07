@@ -11,15 +11,16 @@ private["_display","_units","_type"];
 disableSerialization;
 waitUntil {!isNull findDisplay 3000};
 _display = findDisplay 3000;
-_units = _display displayCtrl 3004;
+_units = _display displayCtrl 1501;
 
 ctrlSetText [3003, ""];
 lbClear _units;
-
-if((__GETC__(life_adminlevel) < 1)) then
+_units lbAdd format["EMS Units"];
+_units lbAdd format["The Police"];
+_units lbAdd format["The Admins"];
+if((__GETC__(life_adminlevel) > 1)) then
 {
-	ctrlShow[3020,false];
-	ctrlShow[3021,false];
+	_units lbAdd format["EVERYONE"];
 };
 {
 	if(alive _x && _x != player) then
@@ -35,4 +36,22 @@ if((__GETC__(life_adminlevel) < 1)) then
 	};
 } foreach playableUnits;
 
-lbSetCurSel [3004,0];
+_amountofsms = count tablet_inbox;
+_units2 = _display displayCtrl 1500;
+{
+_arrnumber = _forEachIndex;
+_sendplayer = _x select 0;
+_message = _x select 1;
+_date = _x select 2;
+if ((_date select 4) < 10) then {
+_mins = format ["0%1",(_date select 4)];
+} else { _mins = (_date select 4)};
+_datecomp = format ["(%6) %1-%2-%3 | %4:%5",(_date select 2),(_date select 1),(_date select 0),(_date select 3),(_date select 4),name player];
+_units2 lbAdd _datecomp;
+} foreach tablet_inbox;
+[_amountofsms] spawn fnc_smsmenuopen;
+[] spawn sms_getinbox;
+lbSetCurSel [1500, 0];
+lbSetCurSel [1501,0];
+
+

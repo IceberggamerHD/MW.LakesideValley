@@ -1,9 +1,9 @@
 /*
 	@version: 1.7
-	@file_name: fn_fetchCfgDetails.sqf
-	@file_author: TAW_Tonic
-	@file_edit: 8/2/2013
-	@file_description: Fetch information about the entities config
+	@File_name: fn_fetchCfgDetails.sqf
+	@File_author: TAW_Tonic
+	@File_edit: 8/2/2013
+	@File_description: Fetch information about the entities config
 	
 	USAGE:
 	[Classname,Cfg* (Optional)] call VAS_fnc_fetchCfgDetails;
@@ -91,7 +91,7 @@ switch (_cfg) do
 					_thiscfgitem = _x select _i;
 					if (isClass _thiscfgitem) then {
 						if !((configName _thiscfgitem) in _slotclasses) then {
-							_slotclasses pushBack configName _thiscfgitem;
+							_slotclasses set [count _slotclasses, configName _thiscfgitem];
 						};
 					};
 				};
@@ -115,7 +115,7 @@ switch (_cfg) do
 				{
 					_tmp = getArray(_base >> _x >> "magazines");
 					{
-						_magazines pushBack _x;
+						_magazines set[count _magazines, _x];
 					} foreach (_tmp);
 				};
 			} foreach _muzzles;

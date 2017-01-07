@@ -1,11 +1,12 @@
 #include <macro.h>
 /*
 	File: fn_p_updateMenu.sqf
-	Author: Bryan "Tonic" Boardwine
+	Author: Arma 3 Life (A3L)
 	
 	Description:
 	Updates the player menu (Virtual Interaction Menu)
 */
+sleep 0.1;
 private["_dialog","_inv","_lic","_licenses","_near","_near_units","_mstatus","_shrt","_side"];
 disableSerialization;
 
@@ -23,6 +24,7 @@ _lic = _dialog displayCtrl 2014;
 _near = _dialog displayCtrl 2022;
 _near_i = _dialog displayCtrl 2023;
 _mstatus = _dialog displayCtrl 2015;
+_mstatus2 = _dialog displayCtrl 2030;
 _struct = "";
 lbClear _inv;
 lbClear _near;
@@ -30,7 +32,7 @@ lbClear _near_i;
 
 //Near players
 _near_units = [];
-{ if(player distance _x < 10) then {_near_units pushBack _x};} foreach playableUnits;
+{ if(player distance _x < 10) then {_near_units set [count _near_units,_x];};} foreach playableUnits;
 {
 	if(!isNull _x && alive _x && player distance _x < 10 && _x != player) then
 	{
@@ -41,7 +43,8 @@ _near_units = [];
 	};
 } foreach _near_units;
 
-_mstatus ctrlSetStructuredText parseText format["<img size='1.3' image='icons\bank.paa'/> <t size='0.8px'>$%1</t><br/><img size='1.2' image='icons\money.paa'/> <t size='0.8'>$%2</t>",[life_atmcash] call life_fnc_numberText,[life_cash] call life_fnc_numberText];
+_mstatus ctrlSetStructuredText parseText format["<t size='1.2px'>$%1</t>",[life_atmcash] call life_fnc_numberText];
+_mstatus2 ctrlSetStructuredText parseText format["<t size='1.2'>$%1</t>",[life_cash] call life_fnc_numberText];
 ctrlSetText[2009,format["Weight: %1 / %2", life_carryWeight, life_maxWeight]];
 {
 	_str = [_x] call life_fnc_varToStr;

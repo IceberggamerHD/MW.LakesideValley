@@ -31,6 +31,7 @@ if(isNull _cop) exitWith {};
 };
 
 titleText[format[localize "STR_Cop_Retrained",_cop getVariable["realname",name _cop]],"PLAIN"];
+[[player,"Cuffed"],"A3L_Fnc_NearestSound",false,false,false] call BIS_fnc_MP;
 				
 while {player getVariable "restrained"} do
 {

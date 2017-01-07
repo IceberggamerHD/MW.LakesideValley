@@ -31,7 +31,8 @@ _titleText = _ui displayCtrl 38202;
 _titleText ctrlSetText format["%2 (1%1)...","%",_title];
 _progressBar progressSetPosition 0.01;
 _cP = 0.01;
-
+player setVariable ["lockpicking",true,true];
+[[player,"lockpicksound"],"fnc_playsound",true,false,true] call BIS_fnc_MP;
 while {true} do
 {
 	if(animationState player != "AinvPknlMstpSnonWnonDnon_medic_1") then {
@@ -58,6 +59,7 @@ while {true} do
 //Kill the UI display and check for various states
 5 cutText ["","PLAIN"];
 player playActionNow "stop";
+player setVariable ["lockpicking",false,true];
 if(!alive player OR life_istazed) exitWith {life_action_inUse = false;};
 if((player getVariable["restrained",false])) exitWith {life_action_inUse = false;};
 if(!isNil "_badDistance") exitWith {titleText[localize "STR_ISTR_Lock_TooFar","PLAIN"]; life_action_inUse = false;};
@@ -70,15 +72,16 @@ if(!_isVehicle) then {
 	_curTarget setVariable["restrained",false,true];
 	_curTarget setVariable["Escorting",false,true];
 	_curTarget setVariable["transporting",false,true];
+	player setVariable ["lockpicking",false,true];
 } else {
 	_dice = random(100);
-	if(_dice < 30) then {
-		titleText[localize "STR_ISTR_Lock_Success","PLAIN"];
-		life_vehicles pushBack _curTarget;
-		[[getPlayerUID player,profileName,"487"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP;
+	if(_dice < 11) then {
+		[[_curTarget,0],"life_fnc_lockVehicle",_curTarget,false] spawn life_fnc_MP;
+		["You've successfully unlocked this vehicle.",20,"green"] call A3L_Fnc_Msg;
+		player setVariable ["lockpicking",false,true];
 	} else {
-		[[getPlayerUID player,profileName,"215"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP;
-		[[0,"STR_ISTR_Lock_FailedNOTF",true,[profileName]],"life_fnc_broadcast",west,false] spawn life_fnc_MP;
-		titleText[localize "STR_ISTR_Lock_Failed","PLAIN"];
+		[[0,format[localize "STR_ISTR_Lock_FailedNOTF",profileName]],"life_fnc_broadcast",west,false] spawn life_fnc_MP;
+		["You've failed to unlocked this vehicle.",20,"red"] call A3L_Fnc_Msg;
+		player setVariable ["lockpicking",false,true];
 	};
 };

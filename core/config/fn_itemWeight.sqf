@@ -15,8 +15,7 @@ switch (_item) do
 	case "oilp": {6};
 	case "heroinu": {6};
 	case "heroinp": {4};
-	case "cannabis": {4};
-	case "marijuana": {3};
+	case "marijuana": {2};
 	case "apple": {1};
 	case "water": {1};
 	case "rabbit": {1};
@@ -56,5 +55,40 @@ switch (_item) do
 	case "defusekit": {2};
 	case "storagesmall": {5};
 	case "storagebig": {10};
+	case "wheat": {1};
+	case "sunflower": {1};
+	case "corn": {2};
+	case "bean": {1};
+	case "cotton": {1};
+	case "olive": {1};
+	case "opium": {2};
+	case "cannabis": {3};
+	case "pumpkin": {2};
+	case "wheat seed": {0.5};
+	case "sunflower seed": {0.5};
+	case "corn seed": {0.5};
+	case "bean seed": {0.5};
+	case "cotton seed": {0.5};
+	case "olive seed": {0.5};
+	case "opium seed": {0.5};
+	case "cannabis seed": {0.5};
+	case "pumpkin seed": {0.5};
+	case "raw goat meat": {2};
+	case "raw chicken": {2.5};
+	case "raw sheep meat": {2};
+	case "raw rabbit": {2.5};
+	case "cigarette": {1};
+	case "RoadConeStripB": {10};
+	case "RoadConeB": {2};
+	case "RoadConeStrip": {10};
+	case "RoadCone": {2};
+	case "RoadBlockWood": {23};
+	case "RoadBlockConc": {46};
+	case "RoadBlockRebel": {46};
+	case "BarGate": {23};
+	case "Rax's Rum" : {1};
+	case "zoobeer": {1}; // Duff Beer
+	
+
 	default {1};
 };

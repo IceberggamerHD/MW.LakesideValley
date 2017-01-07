@@ -2,6 +2,10 @@
 	Master UI Resource File
 */
 #include "common.hpp"
+#include "a3lcommon.hpp"
+
+#include "halloweenshop.hpp"
+#include "bankc4.hpp"
 #include "shop_items.hpp"
 #include "player_inv.hpp"
 #include "gang.hpp"
@@ -24,3 +28,6 @@
 #include "vehicleShop.h"
 #include "settings.h"
 #include "federalReserve.h"
+#include "tablet.hpp"
+#include "smsmenu.hpp"
+#include "arrestmenu.hpp"

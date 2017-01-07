@@ -167,15 +167,17 @@ switch (_code) do
 	//Y Player Menu
 	case 21:
 	{
-	    if(_shift) then{
-	        [] call life_fnc_pv_openMenu;
-	    };
+		if(!_alt && _ctrlKey && !dialog) then
+		{
+			createdialog "playerSettings";
+		};
+		
 		if(!_alt && !_ctrlKey && !dialog) then
 		{
-			[] call life_fnc_p_openMenu;
+			[] call fnc_opentablet;
 		};
 	};
-	
+	/*
 	//F Key
 	case 33:
 	{
@@ -207,6 +209,7 @@ switch (_code) do
 			};
 		};
 	};
+	*/
 	//U Key
 	case 22:
 	{
@@ -242,6 +245,7 @@ switch (_code) do
 							[[_veh,0],"life_fnc_lockVehicle",_veh,false] spawn life_fnc_MP;
 						};
 						systemChat localize "STR_MISC_VehUnlock";
+						[[player,"CarUnlocked"],"A3L_Fnc_NearestSound",false,false,false] call BIS_fnc_MP;
 					} else {
 						if(local _veh) then {
 							_veh lock 2;
@@ -249,6 +253,7 @@ switch (_code) do
 							[[_veh,2],"life_fnc_lockVehicle",_veh,false] spawn life_fnc_MP;
 						};	
 						systemChat localize "STR_MISC_VehLock";
+						[[player,"CarLocked"],"A3L_Fnc_NearestSound",false,false,false] call BIS_fnc_MP;
 					};
 				};
 			};

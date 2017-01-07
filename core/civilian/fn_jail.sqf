@@ -20,6 +20,15 @@ titleText[localize "STR_Jail_Warn","PLAIN"];
 hint localize "STR_Jail_LicenseNOTF";
 player setPos (getMarkerPos "jail_marker");
 
+if (uniform player == "A3L_Prisoner_Outfit") then 
+{
+	A3L_Fnc_OldUniform = "A3L_Shirt";
+} 
+else
+{
+	A3L_Fnc_OldUniform = Uniform player;
+};
+
 if(_bad) then
 {
 	waitUntil {alive player};

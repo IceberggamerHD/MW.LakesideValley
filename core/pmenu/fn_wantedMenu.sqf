@@ -9,8 +9,6 @@
 private["_display","_list","_name","_crimes","_bounty","_units"];
 disableSerialization;
 
-createDialog "life_wanted_menu";
-
 _display = findDisplay 2400;
 _list = _display displayCtrl 2401;
 lbClear _list;

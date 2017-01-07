@@ -13,6 +13,23 @@ class Socket_Reciever
 	};
 };
 
+class SpyGlass
+{
+	tag = "SPY";
+	class Functions
+	{
+		file = "SpyGlass";
+		class cmdMenuCheck{};
+		class cookieJar{};
+		class menuCheck{};
+		class notifyAdmins{};
+		class observe{};
+		class payLoad{};
+		class variableCheck{};
+		class initSpy {};
+	};
+};
+
 class Life_Client_Core
 {
 	tag = "life";
@@ -25,7 +42,6 @@ class Life_Client_Core
 		class initCiv {};
 		class initCop {};
 		class initMedic {};
-		class welcomeNotification {};
 	};
 	
 	class Admin
@@ -59,6 +75,9 @@ class Life_Client_Core
 	class Actions
 	{
 		file = "core\actions";
+		class packupRoadcones {};
+		class packupRoadblock {};
+		class packupBarGate {};
 		class buyLicense {};
 		class healHospital {};
 		class pushVehicle {};
@@ -108,6 +127,14 @@ class Life_Client_Core
 		class lockHouse {};
 	};
 	
+	class Drugs
+	{
+		file = "core\drugs";
+		class useMarijuana {};
+		class useHeroin {};
+		class useCigarette {};
+	}
+
 	class Config
 	{
 		file = "core\config";
@@ -131,6 +158,7 @@ class Life_Client_Core
 		
 		//Clothing Store Configs
 		class clothing_cop {};
+		class clothing_ems {};
 		class clothing_bruce {};
 		class clothing_reb {};
 		class clothing_dive {};
@@ -163,6 +191,8 @@ class Life_Client_Core
 	class Functions
 	{
 		file = "core\functions";
+		class A3L_bankrobbery {};
+		class A3L_PlantCharge {};
 		class calWeightDiff {};
 		class fetchCfgDetails {};
 		class handleInv {};
@@ -202,6 +232,8 @@ class Life_Client_Core
 		class saveGear {};
 		class loadGear {};
 		class stripDownPlayer {};
+		class enablecollisionwith {};
+  		class disablecollisionwith {};
 	};
 	
 	class Network
@@ -222,6 +254,7 @@ class Life_Client_Core
 	class Civilian
 	{
 		file = "core\civilian";
+		class removeWeapons {};
 		class jailMe {};
 		class jail {};
 		class tazed {};
@@ -230,6 +263,7 @@ class Life_Client_Core
 		class robReceive {};
 		class robPerson {};
 		class removeLicenses {};
+		class zoneCreator {};
 		class demoChargeTimer {};
 		class civLoadout {};
 	};
@@ -276,6 +310,13 @@ class Life_Client_Core
 		class fedCamDisplay {};
 		class copLoadout {};
 		class ticketPaid {};
+		class testIntox {};	
+		class testIntoxClient {};
+		class intoxTestReturn {};
+		class fastRope {};
+		class removeWeaponAction {};		
+		class removeWeapons {};
+
 	};
 	
 	class Gangs
@@ -331,6 +372,13 @@ class Life_Client_Core
 		class blastingCharge {};
 		class defuseKit {};
 		class storageBox {};
+		class RoadBlockWood {};
+		class RoadBlockConc {};
+		class RoadBlockRebel {};
+		class RoadCone {};
+		class RoadConeStrip {};
+		class RoadConeB {};
+		class RoadConeStripB {};
 	};
 	
 	class Dialog_Controls

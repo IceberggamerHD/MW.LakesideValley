@@ -2046,7 +2046,7 @@
 		<Key ID="STR_NOTF_NoLootingPerson">
 			<Original>You are not allowed to loot dead bodies</Original>
 			<English>You are not allowed to loot dead bodies</English>
-		</Key>
+		</Key>		
 	</Package>
 	<Package name="Jail_Strings">
 		<Key ID="STR_Jail_Warn">
@@ -2244,6 +2244,14 @@
 			<Italian>La persona da multare non esiste.</Italian>
 			<Portuguese>Jogador a ser multado não existe.</Portuguese>
 		</Key>
+		<Key ID="STR_pInAct_RemoveWeapons">
+			<Original>Confiscate Illegal Weapons</Original>
+			<English>Confiscate Illegal Weapons</English>
+		</Key>
+		<Key ID="STR_pInAct_TestIntox">
+			<Original>Test Intox Level</Original>
+			<English>Test Intox Level</English>
+		</Key>
 		<Key ID="STR_Cop_TicketNum">
 			<Original>You didn't enter actual number.</Original>
 			<English>You didn't enter actual number.</English>
@@ -2253,12 +2261,12 @@
 			<Portuguese>Você não digitou um número válido</Portuguese>
 		</Key>
 		<Key ID="STR_Cop_TicketOver100">
-			<Original>Tickets can not be more than $200,000!</Original>
-			<English>Tickets can not be more than $200,000!</English>
-			<German>Strafzettel können nicht mehr als $200.000 betragen!</German>
-			<French>Les billets ne peuvent être plus de $ 200,000!</French>
-			<Italian>La multa non può essere più di €200.000!</Italian>
-			<Portuguese>A multa não pode ser maior que R$200.000!</Portuguese>
+			<Original>Tickets can not be more than $100,000!</Original>
+			<English>Tickets can not be more than $100,000!</English>
+			<German>Strafzettel können nicht mehr als $100.000 betragen!</German>
+			<French>Les billets ne peuvent être plus de $ 100,000!</French>
+			<Italian>La multa non può essere più di €100.000!</Italian>
+			<Portuguese>A multa não pode ser maior que R$100.000!</Portuguese>
 		</Key>
 		<Key ID="STR_Cop_TicketGive">
 			<Original>%1 gave a ticket of $%2 to %3</Original>
@@ -3034,6 +3042,94 @@
 			<French>Pommes</French>
 			<Italian>Mele</Italian>
 			<Portuguese>Maçãs</Portuguese>
+		</Key>
+				<Key ID="STR_Item_Wheat">
+			<Original>Wheat</Original>
+			<English>Wheat</English>
+		</Key>
+		<Key ID="STR_Item_Wheatseeds">
+			<Original>Wheat Seeds</Original>
+			<English>Wheat Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Sunflower">
+			<Original>Sunflower</Original>
+			<English>Sunflower</English>
+		</Key>
+		<Key ID="STR_Item_Sunflowerseeds">
+			<Original>Sunflower Seeds</Original>
+			<English>Sunflower Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Corn">
+			<Original>Corn</Original>
+			<English>Corn</English>
+		</Key>
+		<Key ID="STR_Item_Cornseeds">
+			<Original>Corn Seeds</Original>
+			<English>Corn Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Bean">
+			<Original>Bean</Original>
+			<English>Bean</English>
+		</Key>
+		<Key ID="STR_Item_Beanseeds">
+			<Original>Bean Seeds</Original>
+			<English>Bean Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Cotton">
+			<Original>Cotton</Original>
+			<English>Cotton</English>
+		</Key>
+		<Key ID="STR_Item_Cottonseeds">
+			<Original>Cotton Seeds</Original>
+			<English>Cotton Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Olive">
+			<Original>Olive</Original>
+			<English>Olive</English>
+		</Key>
+		<Key ID="STR_Item_Oliveseeds">
+			<Original>Olive Seeds</Original>
+			<English>Olive Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Opium">
+			<Original>Opium Poppy</Original>
+			<English>Opium Poppy</English>
+		</Key>
+		<Key ID="STR_Item_Opiumseeds">
+			<Original>Opium Seeds</Original>
+			<English>Opium Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Cannabis">
+			<Original>Cannabis</Original>
+			<English>Cannabis</English>
+		</Key>
+		<Key ID="STR_Item_Cannabisseeds">
+			<Original>Cannabis Seeds</Original>
+			<English>Cannabis Seeds</English>
+		</Key>
+		<Key ID="STR_Item_Pumpkin">
+			<Original>Pumpkin</Original>
+			<English>Pumpkin</English>
+		</Key>
+		<Key ID="STR_Item_Pumpkinseeds">
+			<Original>Pumpkin Seeds</Original>
+			<English>Pumpkin Seeds</English>
+		</Key>
+		<Key ID="STR_Item_rawgoatmeat">
+			<Original>Raw Goat Meat</Original>
+			<English>Raw Goat Meat</English>
+		</Key>
+		<Key ID="STR_Item_rawchicken">
+			<Original>Raw Chicken</Original>
+			<English>Raw Chicken</English>
+		</Key>
+		<Key ID="STR_Item_rawsheepmeat">
+			<Original>Raw Sheep meat</Original>
+			<English>Raw Sheep meat</English>
+		</Key>
+		<Key ID="STR_Item_rawrabbit">
+			<Original>Raw Rabbit</Original>
+			<English>Raw Rabbit</English>
 		</Key>
 		<Key ID="STR_Item_Cocaine">
 			<Original>Cocaine</Original>
@@ -3954,8 +4050,8 @@
 			<Portuguese>Refinando Sal</Portuguese>
 		</Key>
 		<Key ID="STR_Process_Cocaine">
-			<Original>Processing Cocain</Original>
-			<English>Processing Cocain</English>
+			<Original>Processing Cocaine</Original>
+			<English>Processing Cocaine</English>
 			<German>Kokain wird verarbeitet</German>
 			<French>Traitement de Cocaine</French>
 			<Italian>Processando Cocaina</Italian>
@@ -4010,46 +4106,22 @@
 			<Portuguese>Você trasformou %1 em %2 por R$%3</Portuguese>
 		</Key>
 	</Package>
+		</Package>
 	<Package name="Gather_Items">
 		<Key ID="STR_Gather_Apples">
-			<Original>Gather Apples</Original>
-			<English>Gather Apples</English>
-			<German>Äpfel sammeln</German>
-			<French>Récolter des pommes</French>
-			<Italian>Raccogli Mele</Italian>
-			<Portuguese>Colher Maças</Portuguese>
+			<Original>Plant seeds</Original>
 		</Key>
 		<Key ID="STR_Gather_Peaches">
-			<Original>Gather Peaches</Original>
-			<English>Gather Peaches</English>
-			<German>Pfirsiche sammeln</German>
-			<French>pflücke des pêches</French>
-			<Italian>Raccogli Pesche</Italian>
-			<Portuguese>Colher Pêssegos</Portuguese>
+			<Original>Plant seeds</Original>
 		</Key>
 		<Key ID="STR_Gather_Heroin">
-			<Original>Gather Heroin</Original>
-			<English>Gather Heroin</English>
-			<German>Heroin sammeln</German>
-			<French>Récolter des graines de Pavot</French>
-			<Italian>Raccogli Eroina</Italian>
-			<Portuguese>Colher Heroina</Portuguese>
+			<Original>Plant seeds</Original>
 		</Key>
 		<Key ID="STR_Gather_Cannabis">
-			<Original>Gather Cannabis</Original>
-			<English>Gather Cannabis</English>
-			<German>Kannabis sammeln</German>
-			<French>Récolter du Cannabis</French>
-			<Italian>Raccogli Cannabis</Italian>
-			<Portuguese>Colher Erva</Portuguese>
+			<Original>Plant seeds</Original>
 		</Key>
 		<Key ID="STR_Gather_Cocaine">
-			<Original>Gather Cocaine</Original>
-			<English>Gather Cocaine</English>
-			<German>Kokain sammeln</German>
-			<French>Récolte de la Cocaine</French>
-			<Italian>Raccogli Cocaina</Italian>
-			<Portuguese>Colher Cocaina</Portuguese>
+			<Original>Plant seeds</Original>
 		</Key>
 	</Package>
 	<Package name="Medical_Strings">
