@@ -167,11 +167,18 @@ switch (_code) do
 	//Y Player Menu
 	case 21:
 	{
+<<<<<<< HEAD
 		if(!_alt && _ctrlKey && !dialog) then
 		{
 			createdialog "playerSettings";
 		};
 		
+=======
+	    //Shift + Y
+	    if(_shift !_alt && !_ctrlKey && !dialog && playerSide == west) then{
+	        [] call life_fnc_pv_openMenu;
+	    };
+>>>>>>> origin/master
 		if(!_alt && !_ctrlKey && !dialog) then
 		{
 			[] call fnc_opentablet;
